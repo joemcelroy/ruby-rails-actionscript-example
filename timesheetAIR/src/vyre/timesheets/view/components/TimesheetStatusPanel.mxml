@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="315" height="400" styleName="statusPanel" backgroundColor="#232323" >
+
+  <mx:Metadata>
+    [Event(name="retrieveTimesheets", type="flash.events.Event")]
+  </mx:Metadata>
+  
+	<mx:Script>
+		<![CDATA[
+		
+			import mx.collections.ArrayCollection;
+			
+			[Bindable] 
+			public var timesheetCollection : ArrayCollection;
+			
+
+			
+		]]>
+	</mx:Script>
+		
+	<mx:List id="timesheetsDG"
+            dataProvider="{timesheetCollection}"
+            styleName="timesheetsList"
+            width="100%"
+            height="100%"
+            itemRenderer="vyre.timesheets.view.components.timesheetTileItemRenderer"
+/>
+
+		
+</mx:VBox>

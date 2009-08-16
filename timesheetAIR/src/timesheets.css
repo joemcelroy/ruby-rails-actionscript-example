@@ -1,0 +1,120 @@
+/* CSS file */
+
+global {
+   font-family: Helvetica;	
+   color:#8d8d8d;
+    
+}
+
+/** global status panel **/
+
+.statusPanel {
+	background-color:#282828;
+}
+
+/** timesheet tile item renderer **/
+
+.timesheetItem {
+	background-color:#282828;
+	
+}
+
+/** login panel css styles **/
+
+.loginPanel {
+  font-family: Helvetica;	
+  horizontal-center:  0;
+  padding-top:40;
+}
+
+button.loginButton {
+  color:#cc233b;
+  font-size:12px;
+}
+
+label.loginHeader {
+  color:#cc233b;
+  font-size:20px;
+  font-anti-alias-type:advanced;
+  font-sharpness:1;	
+  padding-bottom:0;
+}
+
+.loginTextInput {
+   width:220;
+   padding-top:5px;
+   padding-left:5px;
+}
+
+TextInput {
+  background-color:#222222;
+  color:#8d8d8d;	
+  font-size:12px;
+  font-weight:bold;
+  border-color:#656363;
+  border-thickness:1px;
+  border-style:solid;
+  corner-radius:1;
+  theme-color:    #565656; 
+}
+
+.application {
+  background-color:#222222;
+}
+
+.header {
+   font-family: Helvetica;	
+}
+
+@font-face
+{
+	fontFamily: Helvetica;
+	fontWeight: bold;
+	fontStyle: normal;
+	src: local("Helvetica");
+}
+
+Canvas
+{
+	backgroundColor: #222222;
+}
+
+Label.LocationLabel
+{
+	color: #eeeeee;
+	fontFamily: Arial;
+	fontSize: 17;
+	
+}
+
+.HoursLabel {
+	color: #0E7796;
+	fontSize: 30;
+}
+
+Canvas.timesheetHeader
+{
+	backgroundColor: #333333;
+}
+
+List.timesheetsList
+{
+	backgroundColor: #232323;
+	borderColor: #232323;
+	verticalScrollBarStyleName:timesheetsListScroll;
+}
+
+.timesheetsListScroll {
+	track-colors:#222222, #222222;
+	cornerRadius: 0;
+	up-arrow-skin: ClassReference( null );
+	down-arrow-skin: ClassReference( null );
+		
+	thumbDownSkin: Embed(source="/assets/images/scrollbar.jpg", scaleGridLeft="1", scaleGridTop="10", scaleGridRight="14", scaleGridBottom="43");
+	thumbUpSkin: Embed(source="/assets/images/scrollbar.jpg", scaleGridLeft="1", scaleGridTop="10", scaleGridRight="14", scaleGridBottom="43");
+	thumbOverSkin: Embed(source="/assets/images/scrollbar.jpg" , scaleGridLeft="1", scaleGridTop="10", scaleGridRight="14", scaleGridBottom="43");
+	
+	trackSkin: Embed(source="/assets/images/trackskin.jpg");
+
+	
+}

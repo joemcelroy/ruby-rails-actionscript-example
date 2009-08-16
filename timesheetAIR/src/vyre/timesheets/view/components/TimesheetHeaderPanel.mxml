@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="315" height="36" styleName="timesheetHeader" backgroundColor="#222222">
+	<mx:Label text="Today’s Timesheets" styleName="LocationLabel" x="5" y="8" fontSize="13"/>
+	<mx:Label text="7" left="290" styleName="HoursLabel" y="4" width="17" height="24" fontSize="25"/>	
+	
+</mx:Canvas>

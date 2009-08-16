@@ -1,0 +1,33 @@
+<p>
+  <b>Description:</b>
+  <%=h @timesheet.description %>
+</p>
+
+<p>
+  <b>Hours:</b>
+  <%=h @timesheet.hours %>
+</p>
+
+<p>
+  <b>Day:</b>
+  <%=h @timesheet.day %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @timesheet.user_id %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%=h @timesheet.project_id %>
+</p>
+
+<p>
+  <b>Billable type:</b>
+  <%=h @timesheet.billable_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_timesheet_path(@timesheet) %> |
+<%= link_to 'Back', timesheets_path %>

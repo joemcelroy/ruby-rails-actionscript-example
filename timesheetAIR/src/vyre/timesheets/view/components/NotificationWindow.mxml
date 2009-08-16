@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Window xmlns:mx="http://www.adobe.com/2006/mxml" styleName="chromeless" layout="absolute" width="315" height="80" creationComplete="creation()" verticalScrollPolicy="off" backgroundColor="#222222" creationCompleteEffect="fadeEffect">
+	<mx:Style>
+		.chromeless
+		{
+			showFlexChrome: false;
+			background-color: "#222222";
+			padding: 0px;
+			
+		}
+	</mx:Style>
+	
+	<mx:Script>
+		<![CDATA[
+		
+			public function creation():void {
+				project_name.text = data.project.name;
+				desc_name.text = data.description;
+			}
+		
+		]]>
+	</mx:Script>
+	
+	<mx:Resize id="fadeEffect" duration="2000" heightFrom="0" heightTo="80" />
+
+
+	<mx:Label id="project_name" color="#CC233B" fontSize="20" textAlign="left" text="project name"  y="0" x="0"/>
+	<mx:Label id="desc_name" color="#eeeeee" fontSize="12" textAlign="center" right="142" left="0" text="description name"  y="34" height="26"/>
+		
+	<mx:Label color="#EEEEEE" fontSize="15"
+		textAlign="right" right="0" left="255" text="close" click="this.close()"  y="53" height="24"/>	
+		
+</mx:Window>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="315" height="23" styleName="buttonBar" backgroundColor="#333333">
+
+  <mx:Metadata>
+    [Event(name="newTimesheet", type="flash.events.Event")]
+  </mx:Metadata>
+
+	<mx:Script>
+		<![CDATA[
+			public static const NEW_TIMESHEET:String = "newTimesheet";
+		
+			public function NewTimesheetEvent():void {
+				dispatchEvent(new Event(NEW_TIMESHEET));
+			}
+		]]>
+	</mx:Script>
+
+    <mx:Image source="@Embed('/assets/images/timesheets_button.jpg')" useHandCursor="true" buttonMode="true" />
+
+    <mx:Image source="@Embed('/assets/images/new_button.jpg')" useHandCursor="true" buttonMode="true" x="262" click="NewTimesheetEvent()"/>
+
+</mx:Canvas>

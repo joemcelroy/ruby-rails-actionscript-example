@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:view="vyre.timesheets.view.components.*" xmlns:service="vyre.timesheets.service.*" xmlns:controller="vyre.timesheets.controller.*"  >
+    
+    <mx:states>
+        <mx:State name="timesheet-expanded">
+            <mx:AddChild relativeTo="{timesheetStatusPanel}" position="after">
+		         <view:TimesheetFormPanel id="timesheetFormPanel" bottom="0" />
+            </mx:AddChild>
+        </mx:State>
+    </mx:states>
+    
+    <mx:transitions>
+    	<mx:Transition fromState="" toState="timesheet-expanded">
+        	<mx:Parallel>    	
+       		 	<mx:AnimateProperty property="alpha" fromValue="1" toValue="0.3" target="{timesheetStatusPanel}" easingFunction="Linear.easeIn" duration="400"/>
+       		</mx:Parallel>
+    	</mx:Transition>
+    	<mx:Transition fromState="timesheet-expanded" toState="">
+        	<mx:Parallel>    	
+       		 	<mx:AnimateProperty property="alpha" fromValue="0.3" toValue="1" target="{timesheetStatusPanel}" easingFunction="Linear.easeIn" duration="400"/>
+       		</mx:Parallel>
+    	</mx:Transition>
+    	
+    </mx:transitions>
+    
+    <mx:Script>
+    	<![CDATA[
+    		import mx.effects.easing.Linear;
+    	]]>
+    </mx:Script>
+    
+    <view:TimesheetToolbarPanel id="timesheetToolbarPanel" top="0"/>
+    <view:TimesheetHeaderPanel id="timesheetHeaderPanel" top="23"/>
+	<view:TimesheetStatusPanel id="timesheetStatusPanel" top="60" />
+		
+</mx:Canvas>

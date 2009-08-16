@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:fc="http://www.adobe.com/2006/fc" backgroundColor="#222222" width="315" creationComplete="dispatchEvent(new Event(CommonEvents.COMPONENT_INITIALIZED,true))">
+
+  <mx:Metadata>
+    [Event(name="appLogin", type="flash.events.Event")]
+  </mx:Metadata>
+  
+	<mx:Script>
+		<![CDATA[
+			import vyre.timesheets.CommonEvents;
+			import mx.collections.ArrayCollection;
+			
+			public static const CREATE_TIMESHEET:String ="createTimesheet";
+		
+			[Bindable]
+			public var projectCollection:ArrayCollection = new ArrayCollection;
+		
+			public function addTimesheet():void {
+				 dispatchEvent(new Event(CREATE_TIMESHEET));
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:StringValidator id="description_validator"
+        source="{description}"
+        property="text"
+        minLength="10"
+        tooShortError="need a bigger description" />
+        
+	<mx:StringValidator id="billable_type_validator"
+        source="{billableType}"
+        property="text"
+        minLength="2"
+        tooShortError="need billable type" />   
+        
+      
+  
+	<mx:Form defaultButton="{addTimesheetButton}">
+	
+			<mx:TextArea id="description" text="test" maxChars="500" height="80" width="280"/>
+			<mx:TextInput id="billableType" text="test" width="200"/>
+			<mx:TextInput id="hours" text="2" width="200"/>
+			<fc:AutoComplete id="projectId" dataProvider="{projectCollection}" labelField="name" width="200"/>
+		
+		    <mx:Button id="addTimesheetButton" label="Add Timesheet" click="addTimesheet()"/>
+		
+	</mx:Form>
+</mx:Canvas>

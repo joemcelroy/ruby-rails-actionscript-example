@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyText
+  hours: 1.5
+  day: 2009-03-28
+  user_id: 1
+  project_id: 1
+  billable_type: MyString
+
+two:
+  description: MyText
+  hours: 1.5
+  day: 2009-03-28
+  user_id: 1
+  project_id: 1
+  billable_type: MyString

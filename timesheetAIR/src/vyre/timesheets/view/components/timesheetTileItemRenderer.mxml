@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" styleName="timesheetItem" height="60" width="315" backgroundImage="@Embed(source='/assets/images/timesheet-bg.jpg')" borderStyle="none" creationComplete="initTime()">
+
+	  <mx:Metadata>
+	    [Event(name="startWatch", type="flash.events.Event")]
+	  </mx:Metadata>
+
+	<mx:Script>
+		<![CDATA[
+ 			import vyre.timesheets.view.components.StopWatch;
+ 			
+ 			public static const START_WATCH:String ="startWatch";
+ 			public static const STOP_WATCH:String ="stopWatch";
+ 			
+            [Bindable] private var stopWatch:StopWatch = new StopWatch();
+            [Bindable] public var isRunningTimer:Boolean = false;
+            
+            private function initTime():void {
+            	if (data != null && data.hours != 0) {
+            		stopWatch.savedTimes.push(((data.hours * 60) * 60) * 1000);
+            		updateTime();
+            	}
+            }
+            
+			private function updateTime(e:Event = null):void {
+                var time:String = stopWatch.getTimeStampAsString();
+                swLabel.text = time;  
+            }
+            
+            private function startWatchTimer():void {            	
+                swLabel.addEventListener(Event.ENTER_FRAME, updateTime);
+                stopWatch.start();        
+                isRunningTimer = true;
+                
+            	dispatchEvent(new Event(START_WATCH,true));
+
+                
+            }
+            
+            public function stopWatchTimer():void {
+                 
+            	 data.hours = stopWatch.getTimeStampAsHours();   
+            	             	
+                 swLabel.removeEventListener(Event.ENTER_FRAME, updateTime);
+                 stopWatch.pause();
+                 isRunningTimer = false; 
+                 
+                 dispatchEvent(new Event(STOP_WATCH,true));                
+
+            }
+            
+            private function switchTimer():void {
+                if (isRunningTimer == false) {
+                    startWatchTimer();
+                }
+                else {
+                    stopWatchTimer();
+                }
+            }   
+
+		]]>
+	</mx:Script>
+
+
+	<mx:Label text="{data.project.name}"
+            fontWeight="bold"
+      x="8" y="10" color="#CC233B" fontSize="13"/>
+            
+ 	<mx:Label text="{data.description}" x="10" y="24" fontSize="9" color="#EEEEEE"/>
+ 	
+    <mx:Label text="00:00:00" fontSize="24" color="#EEEEEE" id="swLabel" x="210" y="20" click="switchTimer()"/>
+
+                
+</mx:Canvas>
+

@@ -1,0 +1,37 @@
+<cairngorm:ServiceLocator
+xmlns:mx="http://www.adobe.com/2006/mxml"
+xmlns:cairngorm="http://www.adobe.com/2006/cairngorm">
+
+	<mx:HTTPService id="userWS" url="http://0.0.0.0:3000/session/create.xml" method="POST" resultFormat="xml" contentType="application/xml" showBusyCursor="true" />
+	
+    <mx:RemoteObject id="timesheetRO"
+    	source="TimesheetsController"
+    	destination="rubyamf"
+    	showBusyCursor="true">
+    	<mx:method name="index"/>
+    	<mx:method name="create"/>
+        <mx:method name="update"/> 
+        <mx:method name="destroy"/>
+    </mx:RemoteObject>
+    
+    <mx:RemoteObject id="projectRO"
+    	source="ProjectsController"
+    	destination="rubyamf"
+    	showBusyCursor="true">
+    	<mx:method name="index"/>
+    	<mx:method name="create"/>
+        <mx:method name="update"/> 
+        <mx:method name="destroy"/>
+    </mx:RemoteObject>  
+    
+    <mx:RemoteObject id="companyRO"
+    	source="CompaniesController"
+    	destination="rubyamf"
+    	showBusyCursor="true">
+    	<mx:method name="index"/>
+    	<mx:method name="create"/>
+        <mx:method name="update"/> 
+        <mx:method name="destroy"/>
+    </mx:RemoteObject>
+
+</cairngorm:ServiceLocator>

@@ -1,0 +1,30 @@
+<h1>Listing timesheets</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Hours</th>
+    <th>Day</th>
+    <th>User</th>
+    <th>Project</th>
+    <th>Billable type</th>
+  </tr>
+
+<% for timesheet in @timesheets %>
+  <tr>
+    <td><%=h timesheet.description %></td>
+    <td><%=h timesheet.hours %></td>
+    <td><%=h timesheet.day %></td>
+    <td><%=h timesheet.user_id %></td>
+    <td><%=h timesheet.project_id %></td>
+    <td><%=h timesheet.billable_type %></td>
+    <td><%= link_to 'Show', timesheet %></td>
+    <td><%= link_to 'Edit', edit_timesheet_path(timesheet) %></td>
+    <td><%= link_to 'Destroy', timesheet, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New timesheet', new_timesheet_path %>

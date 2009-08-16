@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" verticalAlign="middle" styleName="loginPanel"  >
+	
+  <mx:Metadata>
+    [Event(name="appLogin", type="flash.events.Event")]
+  </mx:Metadata>
+    	
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			
+			public static const APP_LOGIN:String ="appLogin";
+			public static const NOT_LOGGED_IN:String ="Enter Credentials";
+			public static const LOGGED_IN:String ="Logged In";
+
+			[Bindable] public var loginStatus:String = NOT_LOGGED_IN;
+			
+			
+			public function submitLogin():void {
+     			 dispatchEvent(new Event(APP_LOGIN));
+      		}
+      		
+      		public function loginFailed():void {
+      			Alert.show("login failed n000b");
+      		}
+			
+		]]>
+	</mx:Script>
+	    
+		<mx:Form defaultButton="{loginButton}"  >
+			    <mx:Label text="Sign In" styleName="loginHeader" bottom="0" paddingBottom="0" />
+			    
+				<mx:TextInput styleName="loginTextInput" id="usernameInput" text="joseph@vyre.com" />
+				<mx:TextInput styleName="loginTextInput" id="passwordInput" displayAsPassword="true" text="aquila"/>
+				
+				<mx:Button id="loginButton" 
+				enabled ="{loginStatus == NOT_LOGGED_IN}" alpha="0"
+				click="submitLogin()" label="submit" styleName="loginButton"
+				paddingLeft="120" />
+		</mx:Form>
+	
+</mx:VBox>
